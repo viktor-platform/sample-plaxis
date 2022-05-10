@@ -52,7 +52,7 @@ worker. You can use this file without VIKTOR, yet then you need to specify your 
 files. Furthermore, you have to specify your own output visualisation if wished.
 
 # App structure
-embankment_folder: has embankments as its children
-  └─ embankment: defines the input for PLAXIS and retrieves the output from PLAXIS
-material_folder: has materials as its children
-  └─ material: can be used as a data-set for PLAXIS material inputs
+embankment_folder: has embankments as its children  
+  └─ embankment: defines the input for PLAXIS and retrieves the output from PLAXIS  
+material_folder: has materials as its children  
+  └─ material: can be used as a data-set for PLAXIS material inputs  
