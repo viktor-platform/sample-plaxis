@@ -1,0 +1,42 @@
+{
+  "name": "Clay",
+  "param": {
+    "phi": 25,
+    "psi": 0,
+    "cref": 1,
+    "E50ref": null,
+    "EurRef": null,
+    "powerm": null,
+    "EoedRef": null,
+    "kappaModified": 0.01,
+    "lambdaModified": 0.05,
+    "DefaultValuesAdvanced": "True"
+  },
+  "general": {
+    "einit": 1,
+    "Colour": 32768,
+    "gammaSat": 18,
+    "SoilModel": "Soft Soil",
+    "gammaUnsat": 15,
+    "DrainageType": "Undrained (A)",
+    "MaterialName": "Clay"
+  },
+  "interfaces": {
+    "OCR": 1,
+    "POP": 0,
+    "Rinter": 1,
+    "K0Determination": "Automatic",
+    "InterfaceStrength": "Rigid"
+  },
+  "groundwater": {
+    "ck": 0.2,
+    "DataSetFlow": "USDA",
+    "UsdaSoilType": "Clay",
+    "SoilRatioLarge": 17,
+    "SoilRatioSmall": 70,
+    "SoilRatioMedium": 13,
+    "UseDefaultsFlow": "fromdataset",
+    "perm_vertical_axis": 0.04752,
+    "perm_primary_horizontal_axis": 0.04752
+  }
+}

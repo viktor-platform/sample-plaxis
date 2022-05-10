@@ -1,0 +1,42 @@
+{
+  "name": "Embankment",
+  "param": {
+    "phi": 30,
+    "psi": 0,
+    "cref": 1,
+    "E50ref": 25000,
+    "EurRef": 75000,
+    "powerm": 0.5,
+    "EoedRef": 25000,
+    "kappaModified": null,
+    "lambdaModified": null,
+    "DefaultValuesAdvanced": "True"
+  },
+  "general": {
+    "einit": 0.5,
+    "Colour": 0,
+    "gammaSat": 19,
+    "SoilModel": "Hardening Soil",
+    "gammaUnsat": 16,
+    "DrainageType": "Drained",
+    "MaterialName": "Embankment"
+  },
+  "interfaces": {
+    "OCR": 1,
+    "POP": 0,
+    "Rinter": 1,
+    "K0Determination": "Automatic",
+    "InterfaceStrength": "Rigid"
+  },
+  "groundwater": {
+    "ck": 1000000000000000,
+    "DataSetFlow": "USDA",
+    "UsdaSoilType": "Loamy sand",
+    "SoilRatioLarge": 83,
+    "SoilRatioSmall": 6,
+    "SoilRatioMedium": 11,
+    "UseDefaultsFlow": "fromdataset",
+    "perm_vertical_axis": 3.499,
+    "perm_primary_horizontal_axis": 3.499
+  }
+}

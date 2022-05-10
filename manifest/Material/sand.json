@@ -1,0 +1,42 @@
+{
+  "name": "Sand",
+  "param": {
+    "phi": 33,
+    "psi": 3,
+    "cref": 0,
+    "E50ref": 35000,
+    "EurRef": 105000,
+    "powerm": 0.5,
+    "EoedRef": 35000,
+    "kappaModified": null,
+    "lambdaModified": null,
+    "DefaultValuesAdvanced": "True"
+  },
+  "general": {
+    "einit": 0.5,
+    "Colour": 16711680,
+    "gammaSat": 20,
+    "SoilModel": "Hardening Soil",
+    "gammaUnsat": 17,
+    "DrainageType": "Drained",
+    "MaterialName": "Sand"
+  },
+  "interfaces": {
+    "OCR": 1,
+    "POP": 0,
+    "Rinter": 1,
+    "K0Determination": "Automatic",
+    "InterfaceStrength": "Rigid"
+  },
+  "groundwater": {
+    "ck": 1000000000000000,
+    "DataSetFlow": "USDA",
+    "UsdaSoilType": "Sand",
+    "SoilRatioLarge": 92,
+    "SoilRatioSmall": 4,
+    "SoilRatioMedium": 4,
+    "UseDefaultsFlow": "fromdataset",
+    "perm_vertical_axis": 7.128,
+    "perm_primary_horizontal_axis": 7.128
+  }
+}

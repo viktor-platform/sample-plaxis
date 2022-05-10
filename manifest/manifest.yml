@@ -1,0 +1,33 @@
+version: '1'
+entity_types:
+  EmbankmentFolder:
+    has_designer: false
+    show_properties: false
+  Embankment:
+    has_designer: true
+    show_properties: false
+  MaterialFolder:
+    has_designer: false
+    show_properties: false
+  Material:
+    has_designer: true
+    show_properties: false
+entities:
+- entity_type: EmbankmentFolder
+  properties:
+    name: Embankments
+  children:
+    - entity_type: Embankment
+      properties: Embankment/sample-embankment.json
+- entity_type: MaterialFolder
+  properties:
+    name: Materials
+  children:
+    - entity_type: Material
+      properties: Material/embankment.json
+    - entity_type: Material
+      properties: Material/peat.json
+    - entity_type: Material
+      properties: Material/clay.json
+    - entity_type: Material
+      properties: Material/sand.json

@@ -1,0 +1,33 @@
+{
+  "name": "sample embankment",
+  "geometry_tab": {
+    "soil": {
+      "width": 60,
+      "layers": [
+        {
+          "material": "Select peat here",
+          "thickness": 3
+        },
+        {
+          "material": "Select clay here",
+          "thickness": 3
+        },
+        {
+          "material": "Select Sand here",
+          "thickness": 3
+        }
+      ]
+    },
+    "drain": {
+      "depth": 2,
+      "spacing": 2,
+      "selector": true
+    },
+    "embankment": {
+      "width": 16,
+      "height": 4,
+      "material": "Select Embankment here",
+      "slope_width": 12
+    }
+  }
+}
