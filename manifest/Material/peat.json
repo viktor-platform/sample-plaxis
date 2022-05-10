@@ -1,0 +1,42 @@
+{
+  "name": "Peat",
+  "param": {
+    "phi": 23,
+    "psi": 0,
+    "cref": 2,
+    "E50ref": null,
+    "EurRef": null,
+    "powerm": null,
+    "EoedRef": null,
+    "kappaModified": 0.03,
+    "lambdaModified": 0.15,
+    "DefaultValuesAdvanced": "True"
+  },
+  "general": {
+    "einit": 2,
+    "Colour": 7198463,
+    "gammaSat": 12,
+    "SoilModel": "Soft Soil",
+    "gammaUnsat": 8,
+    "DrainageType": "Undrained (A)",
+    "MaterialName": "Peat"
+  },
+  "interfaces": {
+    "OCR": 1,
+    "POP": 5,
+    "Rinter": 1,
+    "K0Determination": "Automatic",
+    "InterfaceStrength": "Rigid"
+  },
+  "groundwater": {
+    "ck": 1,
+    "DataSetFlow": "USDA",
+    "UsdaSoilType": "Clay",
+    "SoilRatioLarge": 17,
+    "SoilRatioSmall": 70,
+    "SoilRatioMedium": 13,
+    "UseDefaultsFlow": "none",
+    "perm_vertical_axis": 0.05,
+    "perm_primary_horizontal_axis": 0.1
+  }
+}
