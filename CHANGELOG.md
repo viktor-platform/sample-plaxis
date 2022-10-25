@@ -21,7 +21,7 @@ None.
 None.
 
 ### Internal
-None.
+- (#2) Remove munch dependency on lib/plaxis.py
 
 ## v1.0.0 (10/05/2022)
 ### Added

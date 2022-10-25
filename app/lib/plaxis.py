@@ -25,7 +25,6 @@ from typing import List
 from typing import Union
 
 import numpy as np
-from munch import munchify
 from plxscripting.easy import new_server
 
 # Define the paths where the json files are created. This is with respect to the current working directory of the VIKTOR
@@ -200,47 +199,48 @@ with subprocess.Popen(
             material.setproperties(*material_zip)  # Set all the properties of the material in an iterative fashion
         materials.update({material_flattened_dict["MaterialName"]: material})
 
-    embankment_parameters = munchify(params_embankment["geometry_tab"]["embankment"])
-    soil_parameters = munchify(params_embankment["geometry_tab"]["soil"])
-    drain_parameters = munchify(params_embankment["geometry_tab"]["drain"])
-    layer_thicknesses = [layer.thickness for layer in soil_parameters.layers]
+    embankment_parameters = params_embankment["geometry_tab"]["embankment"]
+    soil_parameters = params_embankment["geometry_tab"]["soil"]
+    drain_parameters = params_embankment["geometry_tab"]["drain"]
+    layer_thicknesses = [layer["thickness"] for layer in soil_parameters["layers"]]
     soil_depth = -1 * sum(layer_thicknesses)
-    g_i.SoilContour.initializerectangular(0, soil_depth, soil_parameters.width, embankment_parameters.height)
+    g_i.SoilContour.initializerectangular(0, soil_depth, soil_parameters["width"], embankment_parameters["height"])
     borehole = g_i.borehole(0)
-    layers = [g_i.soillayer(layer.thickness) for layer in soil_parameters.layers]
+    layers = [g_i.soillayer(layer["thickness"]) for layer in soil_parameters["layers"]]
     borehole.Head = -1  # Water level is at -1 m
     _ = [
-        g_i.setmaterial(soil, materials[layer.material.name]) for soil, layer in zip(g_i.Soils, soil_parameters.layers)
+        g_i.setmaterial(soil, materials[layer["material"]["name"]])
+        for soil, layer in zip(g_i.Soils, soil_parameters["layers"])
     ]
     g_i.gotostructures()
     # Define the points of the embankment structure
     point_list = [
         g_i.point(x, y)
         for x, y in [
-            (0, embankment_parameters.height),
-            (embankment_parameters.width / 2.0, embankment_parameters.height),
+            (0, embankment_parameters["height"]),
+            (embankment_parameters["width"] / 2.0, embankment_parameters["height"]),
             (
-                (embankment_parameters.width + embankment_parameters.slope_width) / 2.0,
-                embankment_parameters.height / 2.0,
+                (embankment_parameters["width"] + embankment_parameters["slope_width"]) / 2.0,
+                embankment_parameters["height"] / 2.0,
             ),
-            (0, embankment_parameters.height / 2.0),
+            (0, embankment_parameters["height"] / 2.0),
             (0, 0),
-            (embankment_parameters.width / 2.0 + embankment_parameters.slope_width, 0),
+            (embankment_parameters["width"] / 2.0 + embankment_parameters["slope_width"], 0),
         ]
     ]
     # Always draw the bottom layer first, as it otherwise does not connect
     embankment_bottom_layer = g_i.polygon(*point_list[2:])[0]  # Last four points are the bottom layer
     embankment_top_layer = g_i.polygon(*point_list[:4])[0]  # First four points are the top layer
     # Set the proper materials on the embankment layers
-    g_i.setmaterial(embankment_top_layer.Soil, materials[embankment_parameters.material.name])
-    g_i.setmaterial(embankment_bottom_layer.Soil, materials[embankment_parameters.material.name])
-    if drain_parameters.selector:  # If drains are enabled
+    g_i.setmaterial(embankment_top_layer.Soil, materials[embankment_parameters["material.name"]])
+    g_i.setmaterial(embankment_bottom_layer.Soil, materials[embankment_parameters["material.name"]])
+    if drain_parameters["selector"]:  # If drains are enabled
         _ = [  # Set the drain depth to just above the end of the selected layer
-            g_i.drain((x, 0), (x, (-1 + 1e-7) * sum(layer_thicknesses[: drain_parameters.depth])))
+            g_i.drain((x, 0), (x, (-1 + 1e-7) * sum(layer_thicknesses[: drain_parameters["depth"]])))
             for x in np.arange(
-                drain_parameters.spacing / 2.0,
-                embankment_parameters.width / 2.0 + embankment_parameters.slope_width,
-                drain_parameters.spacing,
+                drain_parameters["spacing"] / 2.0,
+                embankment_parameters["width"] / 2.0 + embankment_parameters["slope_width"],
+                drain_parameters["spacing"],
             )
         ]
     g_i.gotomesh()
@@ -261,7 +261,7 @@ with subprocess.Popen(
     phase_1.DeformCalcType = "Consolidation"
     phase_1.TimeInterval = 2  # Phase takes two days
     g_i.activate(embankment_bottom_layer, phase_1)
-    if drain_parameters.selector:  # If drains are enabled
+    if drain_parameters["selector"]:  # If drains are enabled
         g_i.activate(g_i.Drains, phase_1)
     phase_2 = g_i.phase(phase_1)
     phase_2.Identification = phase_names[1]
