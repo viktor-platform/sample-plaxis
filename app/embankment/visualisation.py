@@ -18,7 +18,7 @@ SOFTWARE.
 import numpy as np
 from munch import Munch
 from viktor import Color
-from viktor import UserException
+from viktor import UserError
 from viktor.geometry import Group
 from viktor.geometry import Material
 from viktor.geometry import Point
@@ -37,7 +37,7 @@ def _check_params(params: Munch) -> None:
     ):
         err_list.append("Please make sure materials are defined for the embankment and soil layers")
     if err_list:
-        raise UserException(". ".join(err_list))
+        raise UserError(". ".join(err_list))
 
 
 def _get_rgb(value: int):
@@ -98,7 +98,7 @@ def get_embankment_geometry_group(params: Munch) -> Group:
         try:
             drain_depth = layers[params.geometry_tab.drain.depth - 1].points[-1].y
         except IndexError as err:
-            raise UserException("This drain depth is deeper than the amount of layers available") from err
+            raise UserError("This drain depth is deeper than the amount of layers available") from err
         drains = [
             Polygon(
                 points=[

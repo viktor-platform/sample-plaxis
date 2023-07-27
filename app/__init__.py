@@ -16,7 +16,21 @@ CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFT
 SOFTWARE.
 """
 
-from app.embankment.controller import EmbankmentController
-from app.embankment_folder.controller import EmbankmentFolderController
-from app.material.controller import MaterialController
-from app.material_folder.controller import MaterialFolderController
+from app.embankment.controller import EmbankmentController as Embankment
+from app.embankment_folder.controller import EmbankmentFolderController as EmbankmentFolder
+from app.material.controller import MaterialController as Material
+from app.material_folder.controller import MaterialFolderController as MaterialFolder
+
+from viktor import InitialEntity
+
+initial_entities = [
+    InitialEntity('EmbankmentFolder', name='Embankments', children=[
+        InitialEntity('Embankment', name='sample embankment', params='../manifest/Embankment/sample-embankment.json')
+    ]),
+    InitialEntity('MaterialFolder', name='Materials', children=[
+        InitialEntity('Material', name='Embankment', params='../manifest/Material/embankment.json'),
+        InitialEntity('Material', name='Peat', params='../manifest/Material/peat.json'),
+        InitialEntity('Material', name='Clay', params='../manifest/Material/clay.json'),
+        InitialEntity('Material', name='Sand', params='../manifest/Material/sand.json')
+    ])
+]
