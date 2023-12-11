@@ -26,5 +26,4 @@ class EmbankmentFolderController(ViktorController):
     label = "Embankment folder"
     children = ["Embankment"]
     show_children_as = "Cards"  # or 'Table'
-
-    viktor_convert_entity_field = True
+    viktor_enforce_field_constraints = True

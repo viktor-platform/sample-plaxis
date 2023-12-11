@@ -172,7 +172,7 @@ ORDERED_MATERIAL_KEYS = [
 PLAXIS_PATH = r"C:\Program Files\Bentley\Geotechnical\PLAXIS 2D CONNECT Edition V21\\Plaxis2DXInput.exe"
 PORT_I = 10000  # Define a port number.
 PORT_O = 10001
-PASSWORD = "s1<BvF8rMM?ZRRR%"
+PASSWORD = "3nt3R-Y0uR-PA$$W0rd"
 with subprocess.Popen(
     [PLAXIS_PATH, f"--AppServerPassword={PASSWORD}", f"--AppServerPort={PORT_I}"],
     shell=False,

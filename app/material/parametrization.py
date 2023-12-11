@@ -57,144 +57,115 @@ class MaterialParametrization(Parametrization):
         ui_name="Colour",
         options=_get_color_options,
         default="yellow",
-        variant="standard",
-    )
+        variant="standard")
     # Define the inputs for material properties, as defined in the tutorial PDF (PLAXIS_2D_2018-Tutorial-Lesson05.pdf)
     general.new_line = LineBreak()
     general.SoilModel = OptionField(
         ui_name="Material Model",
-        options=["Hardening Soil", "Soft Soil"],
-    )
+        options=["Hardening Soil", "Soft Soil"])
     general.DrainageType = OptionField(
         ui_name="Type",
         description="Type of material behaviour",
-        options=["Drained", "Undrained (A)"],
-    )
+        options=["Drained", "Undrained (A)"])
     general.gammaUnsat = NumberField(
         ui_name="$γ_{unsat}$",
         description="Soil unit weight above phreatic level",
-        suffix="kN / m^3",
-    )
+        suffix="kN / m^3")
     general.gammaSat = NumberField(
         ui_name="$γ_{sat}$",
         description="Soil unit weight below phreatic level",
-        suffix="kN / m^3",
-    )
+        suffix="kN / m^3")
     general.einit = NumberField(
         ui_name="$e_{init}$",
         description="Initial void ratio",
-        suffix="-",
-    )
+        suffix="-")
     param = Tab("Parameters")
     param.E50ref = NumberField(
         ui_name="$E^{ref}_{50}$",
         description="Secant stiffness in standard drained triaxial test",
-        suffix="kN / m^2",
-    )
+        suffix="kN / m^2")
     param.EoedRef = NumberField(
         ui_name="$E^{ref}_{oed}$",
         description="Tangent stiffness for primary oedometer loading",
-        suffix="kN / m^2",
-    )
+        suffix="kN / m^2")
     param.EurRef = NumberField(
         ui_name="$E^{ref}_{ur}$",
         description="Unloading / reloading stiffness",
-        suffix="kN / m^2",
-    )
+        suffix="kN / m^2")
     param.powerm = NumberField(
         ui_name="m",
         description="Power for stress-level dependency of stiffness",
-        suffix="-",
-    )
+        suffix="-")
     param.lambdaModified = NumberField(
         ui_name="$λ^{*}$",
         description="Modified compression index",
-        suffix="-",
-    )
+        suffix="-")
     param.kappaModified = NumberField(
         ui_name="$κ^{*}$",
         description="Modified swelling index",
-        suffix="-",
-    )
+        suffix="-")
     param.cref = NumberField(
         ui_name="$c_{ref}'$",
         description="Cohesion",
-        suffix="kN / m^2",
-    )
+        suffix="kN / m^2")
     param.phi = NumberField(
         ui_name="$φ'$",
         description="Friction angle",
-        suffix="deg",
-    )
+        suffix="deg")
     param.psi = NumberField(
         ui_name="$ψ$",
         description="Dilatancy angle",
-        suffix="deg",
-    )
+        suffix="deg")
     param.DefaultValuesAdvanced = OptionField(ui_name="Advanced: set to default", options=["True", "False"])
     groundwater = Tab("Groundwater")
     groundwater.DataSetFlow = OptionField(
         ui_name="data set",
-        options=["USDA"],
-    )
+        options=["USDA"])
     groundwater.UsdaSoilType = OptionField(
         ui_name="soil type",
-        options=["Loamy sand", "Sand", "Clay"],
-    )
+        options=["Loamy sand", "Sand", "Clay"])
     groundwater.SoilRatioSmall = NumberField(
         ui_name="larger than 2μm",
-        suffix="%",
-    )
+        suffix="%")
     groundwater.SoilRatioMedium = NumberField(
         ui_name="2μm - 50μm",
-        suffix="%",
-    )
+        suffix="%")
     groundwater.SoilRatioLarge = NumberField(
         ui_name="50μm - 2mm",
-        suffix="%",
-    )
+        suffix="%")
     groundwater.UseDefaultsFlow = OptionField(
         ui_name="Use defaults",
-        options=[OptionListElement("fromdataset", "From data set"), OptionListElement("none", "None")],
-    )
+        options=[OptionListElement("fromdataset", "From data set"), OptionListElement("none", "None")])
     groundwater.perm_primary_horizontal_axis = NumberField(
         ui_name="$k_{x}$",
         description="Horizontal permeability",
-        suffix="m/day",
-    )
+        suffix="m/day")
     groundwater.perm_vertical_axis = NumberField(
         ui_name="$k_{y}$",
         description="Vertical permeability",
-        suffix="m/day",
-    )
+        suffix="m/day")
     groundwater.ck = NumberField(
         ui_name="$c_{k}$",
         description="Change in permeability",
-        suffix="-",
-    )
+        suffix="-")
     interfaces = Tab("Interfaces")
     interfaces.new_line_4 = LineBreak()
     interfaces.InterfaceStrength = OptionField(
         ui_name="Interface strength",
-        options=["Rigid"],
-    )
+        options=["Rigid"])
     interfaces.Rinter = NumberField(
         ui_name="$R_{inter}$",
         description="Strength reduction factor",
-        suffix="-",
-    )
+        suffix="-")
     interfaces.new_line_5 = LineBreak()
     interfaces.K0Determination = OptionField(
         ui_name="$K_{0}$ determination",
-        options=["Automatic"],
-    )
+        options=["Automatic"])
     interfaces.OCR = NumberField(
         ui_name="OCR",
         description="Over-consolidation ratio",
-        suffix="-",
-    )
+        suffix="-")
     interfaces.POP = NumberField(
         ui_name="POP",
         description="Pre-overburden pressure",
-        suffix="kN / m^2",
-    )
+        suffix="kN / m^2")

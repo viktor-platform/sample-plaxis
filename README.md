@@ -12,7 +12,7 @@ An example interaction with the sample app is shown below.
 # Installing the application
 Since a worker is needed for this application, some work is required to install the application properly.
 
-1. A worker should be installed according to the VIKTOR docs: [PLAXIS generic worker docs](https://docs.viktor.ai/docs/guides/integrations/plaxis)
+1. A worker should be installed according to the VIKTOR docs: [PLAXIS generic worker docs](https://docs.viktor.ai/docs/create-apps/software-integrations/plaxis)
 This worker should be on the same machine as where PLAXIS is installed.
 2. PLAXIS uses some Python interpreter, which can be the default one PLAXIS provides, or another one which you can
 define yourself in PLAXIS itself by navigating through the menu:  

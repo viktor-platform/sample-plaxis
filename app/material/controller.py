@@ -28,3 +28,4 @@ class MaterialController(ViktorController):
 
     label = "Material"
     parametrization = MaterialParametrization
+    viktor_enforce_field_constraints = True

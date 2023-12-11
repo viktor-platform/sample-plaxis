@@ -51,8 +51,7 @@ class EmbankmentParametrization(Parametrization):
         max=50.0,
         num_decimals=2,
         variant="standard",
-        suffix="m",
-    )
+        suffix="m")
     geometry_tab.embankment.height = NumberField(
         "Height",
         default=4.0,
@@ -61,8 +60,7 @@ class EmbankmentParametrization(Parametrization):
         max=10.0,
         num_decimals=2,
         variant="standard",
-        suffix="m",
-    )
+        suffix="m")
     geometry_tab.embankment.slope_width = NumberField(
         "Slope width",
         default=12.0,
@@ -71,8 +69,7 @@ class EmbankmentParametrization(Parametrization):
         max=50.0,
         num_decimals=2,
         variant="standard",
-        suffix="m",
-    )
+        suffix="m")
     geometry_tab.embankment.material = EntityOptionField(ui_name="Material", entity_type_names=["Material"])
     geometry_tab.soil = Section("Soil")
     geometry_tab.soil.width = NumberField(
@@ -83,8 +80,7 @@ class EmbankmentParametrization(Parametrization):
         max=120.0,
         num_decimals=2,
         variant="standard",
-        suffix="m",
-    )
+        suffix="m")
     geometry_tab.soil.layers = DynamicArray("Layers")
     geometry_tab.soil.layers.thickness = NumberField(
         "Thickness",
@@ -94,8 +90,7 @@ class EmbankmentParametrization(Parametrization):
         max=5.0,
         num_decimals=2,
         variant="standard",
-        suffix="m",
-    )
+        suffix="m")
     geometry_tab.soil.layers.material = EntityOptionField(
         ui_name="Material",
         entity_type_names=["Material"],
@@ -112,13 +107,11 @@ class EmbankmentParametrization(Parametrization):
         num_decimals=2,
         variant="standard",
         suffix="m",
-        visible=Lookup("geometry_tab.drain.selector"),
-    )
+        visible=Lookup("geometry_tab.drain.selector"))
     geometry_tab.drain.depth = IntegerField(
         "Drain depth",
         default=2,
         min=1,
         max=_max_drain_depth,
         suffix="layers deep",
-        visible=Lookup("geometry_tab.drain.selector"),
-    )
+        visible=Lookup("geometry_tab.drain.selector"))

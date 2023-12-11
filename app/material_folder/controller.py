@@ -26,5 +26,4 @@ class MaterialFolderController(ViktorController):
     label = "Material folder"
     children = ["Material"]
     show_children_as = "Table"  # or 'Cards'
-
-    viktor_convert_entity_field = True
+    viktor_enforce_field_constraints = True
